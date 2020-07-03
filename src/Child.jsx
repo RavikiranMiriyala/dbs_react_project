@@ -18,6 +18,11 @@ class Child extends React.Component{
         this.getSelectedValue = (props.getSelectedValue) ? props.getSelectedValue.bind(this) : () => {};
         this.handleChange = this.handleChange.bind(this);
       };
+
+    componentWillReceiveProps(nextProps) {
+    console.log('componentWillReceiveProps', nextProps);
+    this.setState({user: nextProps.user});
+  }
       
       handleInput1(val){
           
@@ -68,7 +73,7 @@ class Child extends React.Component{
 render() {
     
     return (
-        <div style={{width:"400px",margin:"50px 0 100px 100px"}}> 
+        <div style={{width:"400px",margin:"10px 0 100px 100px"}}> 
         <Select
         name="country"
         value={this.state.selectedValue}
